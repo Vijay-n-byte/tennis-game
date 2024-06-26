@@ -48,3 +48,5 @@ Details of the scoring system can be found in [this wiki article](https://en.wik
 * Your submission should be executable by anyone so please provide adequate instruction on setup and install of any dependencies including the runtime environment. 
 * We suggest you create a new branch for your work and then raise a pull request when you are ready for it to be reviewed. 
 * Ensure that all dependencies are correctly specified in your `pom.xml` file and that the project builds without errors. Include instructions in your `README.md` on how to build and run the project, as well as any necessary information about the application's configuration and environment.
+
+Details of APIs: https://documenter.getpostman.com/view/28485324/2sA3drHuHs
