@@ -50,3 +50,16 @@ Details of the scoring system can be found in [this wiki article](https://en.wik
 * Ensure that all dependencies are correctly specified in your `pom.xml` file and that the project builds without errors. Include instructions in your `README.md` on how to build and run the project, as well as any necessary information about the application's configuration and environment.
 
 Details of APIs: https://documenter.getpostman.com/view/28485324/2sA3drHuHs
+
+Design pattern Employed:
+    Domain Model
+       All the core logics are written inside entity class itself.
+       So entity classes incorporates both data and behaviour.
+       So core logics are not performed by service class.
+    
+    Role of Service class:   
+       There is no core logic methods in service.
+       Service class simply serves as a bridge between controller and repository.
+       Service class fetches entity object,transforms entity object into new state using inputs from controller.
+       Then it decides when to persist entity object.
+       It also creates dto objects and pass them to controller class.

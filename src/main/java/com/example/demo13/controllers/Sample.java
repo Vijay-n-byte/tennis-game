@@ -17,7 +17,6 @@ import com.example.demo13.dto.Matchdto;
 import com.example.demo13.dto.Matchupdatedto;
 import com.example.demo13.dto.Pointerdto;
 import com.example.demo13.dto.Tossdetailsdto;
-import com.example.demo13.entities.dum;
 import com.example.demo13.entities.Match;
 import com.example.demo13.entities.Pointer;
 import com.example.demo13.repo.Samplerepo;
