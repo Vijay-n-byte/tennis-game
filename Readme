@@ -1,0 +1,50 @@
+BRD:
+## The Project
+Tennis has a rather quirky scoring system, and to newcomers it can be a little difficult to keep track of. The tennis social club has asked for volunteers to help build a system to track and display the current score during tennis matches.
+
+You have been asked to provide a simple REST based service to manage matches and track scores. This will drive a mobile application for the umpires or spectators which is out of scope of the task.
+
+They don’t have many requirements but a few they have been able to articulate are
+* It should allow a match to be created, specifying the number of sets and players playing
+* It should provide a simple single endpoint that accepts the player winning the point, returning the score or winning player
+* It should track progress of games and sets
+* It should provide an endpoint for the match status, including at least
+  * Player names
+  * Sets score
+  * Games score for current set
+  * Score of current game
+* Multiple matches can run concurrently so it should be able to track each one
+* All logic and pecularities of Tennis should be encapsualted in the service, so UI's will just be responsilble for rendering (i.e. without understanding the order of reading the score)
+
+Details of the scoring system can be found in [this wiki article](https://en.wikipedia.org/wiki/Tennis#Scoring), and can be summarised as
+* A game is won by the first player to have won at least four points in total and at least two points more than the opponent
+* scores from zero to three points are described as "love", "15", "30", and "40", respectively
+* The score of a tennis game during play is always read with the serving player's score first
+* If at least three points have been scored by each player and
+  * scores are equal then the score is called as “deuce”
+  * a player has 1 more point than opponent then the score of the game is "advantage" for the player in the lead
+* A player wins a set by winning at least six games and at least two games more than the opponent
+* The match outcome is determined through a best of three or five sets system
+
+## Considerations
+* The tech stack is Java so a submission using Java/Spring is preferred.
+* Adapt Reactive programming using Spring Webflux.
+* Maven as the recommended project/dependency management tool
+* Architecture:
+  - Choose a suitable architecture for this project that supports scalability and maintainability. I recommend a layered architecture for separation of concerns.
+  - Provide a detailed architecture diagram that outlines the system components, their interactions, and data flow.
+  - Utilize design patterns where appropriate to solve common problems in software design.
+  - Document the rationale behind architectural decisions and how they support the project's objectives.
+  - Add inline and javadoc documentation for tricky code design.
+* Code should be well-structured, suitably commented, have error handling, and be tested.
+* Unit tests added at least with 8f0% line and mutation coverage.
+* API Testing using Postman:
+  - Include a comprehensive Postman collection for testing all API endpoints.
+  - Ensure the collection contains tests for all functionalities, including success and error scenarios.
+  - Document each request within the Postman collection, providing clear descriptions and expected outcomes.
+
+## Submitting
+* There is already a Gitlab repo created for this project so upon acceptance of this project I can share it with you to build the requirements.  
+* Your submission should be executable by anyone so please provide adequate instruction on setup and install of any dependencies including the runtime environment. 
+* We suggest you create a new branch for your work and then raise a pull request when you are ready for it to be reviewed. 
+* Ensure that all dependencies are correctly specified in your `pom.xml` file and that the project builds without errors. Include instructions in your `README.md` on how to build and run the project, as well as any necessary information about the application's configuration and environment.
