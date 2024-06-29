@@ -63,3 +63,15 @@ Design pattern Employed:
        Service class fetches entity object,transforms entity object into new state using inputs from controller.
        Then it decides when to persist entity object.
        It also creates dto objects and pass them to controller class.
+ 
+About Technology:
+       Since use case requirement is live streaming the current match,the appropriate server technology model whould be server push.
+       So response will be pushed from server in form of events to clients.
+       Clients simply can subscribe/unsubscribe to the event.
+       We can simply utilise Spring WebFlux technology jars for this purpose.
+    
+Database:
+       We utilised Mongodb -the famouse document database.
+
+Security:
+       We used Spring Security.Admin role is the one who has the authority to update match scores.    

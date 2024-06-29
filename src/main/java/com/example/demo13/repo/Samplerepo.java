@@ -1,7 +1,9 @@
 package com.example.demo13.repo;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +14,6 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import com.example.demo13.entities.dum;
 import com.example.demo13.dto.Matchupdatedto;
 import com.example.demo13.entities.Match;
 import com.example.demo13.entities.Pointer;
@@ -60,26 +61,16 @@ public class Samplerepo {
 		u.set("status", match.getStatus());
 		mt1.updateMulti(t, u, Match.class);
 	}
+	
+	public List<String> getLiveMatchid() {
+		Query t=new Query();
+		t.addCriteria(Criteria.where("status").is("started"));
+		List<Match> m=mt1.find(t, Match.class);
+		List<String> h=m.stream().map(n->n.getMatchid()).collect(Collectors.toList());
+		return h;
+	}
+	
 	public Flux<Match> getMatchlivestream(String id) {
 		return mt.findById(id, Match.class).repeat();
 	}
-	
-	
-//	public void gethh(dum d){
-//		mt.insert(d).subscribe();
-//	}
-//	public void gethh1up(dum d){
-//		Query t=new Query();
-//		t.addCriteria(Criteria.where("num1").is(d.getNum1()));
-//		Update u=new Update();
-//		u.set("num2", d.getNum2());
-//		mt.updateMulti(t, u, dum.class).subscribe();
-//	}
-//	public Flux<dum> getmap2(int id) {
-//		return mt.findById(id, dum.class).repeat();
-//	}
-//	//for futures
-//	public Callable<Match> getmap3(String  id) {
-//		return ()->{return mt1.findById(id, Match.class);};
-//	}
 }

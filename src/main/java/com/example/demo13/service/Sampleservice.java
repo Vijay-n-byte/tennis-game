@@ -68,15 +68,12 @@ public class Sampleservice {
 		a.updateGames(b.getGameno()-1, g);
 		return a;
 	}
+	public List<String> getAllLiveMatchDetails(){
+		return sr.getLiveMatchid();
+	}
 	
 	//using springflux flux and mono
 	public Flux<Match> livestreammatch(String id) {
 		return sr.getMatchlivestream(id).delayElements(Duration.ofMillis(20));
 	}
-	
-//	//using future
-//	public Future<Match> livestreammatch1(String id) {
-//		ExecutorService es=Executors.newSingleThreadExecutor();
-//		return es.submit(sr.getmap3(id));
-//	}
 }

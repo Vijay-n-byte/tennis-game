@@ -1,5 +1,7 @@
 package com.example.demo13.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,6 +22,11 @@ public class UserControllers {
 
 	@Autowired
 	private Sampleservice ss;
+	
+	@GetMapping(path="/match")
+	public List<String> getlivematches(){
+		return ss.getAllLiveMatchDetails();
+	}
 	
 	@GetMapping(path="/match/{id}",produces=MediaType.TEXT_EVENT_STREAM_VALUE)
 	public Flux<Match> getmatchlivestream(@PathVariable String id) {
